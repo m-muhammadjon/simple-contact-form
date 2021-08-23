@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load widget_tweaks %}
+{% block title %} Biz bilan bog'laning {% endblock %}
+{% block links %}
+    <link rel="stylesheet" href="{% static 'base.css' %}">
+{% endblock %}
+{% block content %}
+    <div class="container">
+        <form id="contact" action="" method="post" role="form">
+            {% csrf_token %}
+            <h3>Biz bilan bog'laning</h3>
+            <h4>Bizga savollaringiz bormi?</h4>
+            {% render_field form.name placeholder='Ismingiz' %}
+            {% render_field form.email placeholder='Email manzilingiz' %}
+            {% render_field form.phone placeholder='Telefon raqamingiz' %}
+            {% render_field form.subject placeholder='Nima mavzuda' %}
+            {% render_field form.message placeholder='Xabaringizni shu yerda qoldiring...' %}
+            <fieldset>
+                <button name="submit" type="submit" id="contact-submit" data-submit="...Sending">Yuborish</button>
+            </fieldset>
+            <p class="copyright">Designed by <a href="https://colorlib.com" target="_blank"
+                                                title="Colorlib">Mukhammad</a></p>
+        </form>
+    </div>
+{% endblock %}
